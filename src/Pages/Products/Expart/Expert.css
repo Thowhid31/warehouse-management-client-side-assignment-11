@@ -1,0 +1,47 @@
+.our-single-expert{
+    border: 8px solid rgb(241, 241, 241); 
+    border-radius: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    height: 620px;
+    width: 620px;
+    background-color: darkgreen;
+    color: yellow;
+    margin-right: 20px;
+    
+}
+
+.our-single-expert img{
+    
+    width: 600px;
+    width: 400px;
+    border-radius: 20%;
+    margin: 20px;
+}
+
+
+.all-expert-class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.host-button{
+    color: white;
+    background-color: Red;
+    border: 0 solid;
+    height: 50px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.host-button:hover{
+    color: rgb(240, 252, 0);
+    background-color: rgb(144, 0, 0);
+    border: 0 solid;
+    height: 50px;
+    margin: 20px;
+    border-radius: 30px;
+}
+

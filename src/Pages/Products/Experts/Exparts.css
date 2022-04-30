@@ -1,0 +1,25 @@
+.our-experts{
+    color: purple;
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+.expert-all-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 22px;
+}
+
+/* responsive code */
+@media only screen and (max-width: 575px){
+    .expert-all-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (min-width: 575px) and (max-width: 992px){
+    .expert-all-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

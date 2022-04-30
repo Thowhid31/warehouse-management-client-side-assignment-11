@@ -1,0 +1,22 @@
+.single-product{
+    border: 1px solid purple; 
+    border-radius: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+ }
+ 
+ .single-product img{
+     border-radius: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .product-button{
+     background-color: rgb(0, 70, 128);
+     border: none;
+ }
+ 
+ .single-product:hover{
+     color: white;
+     background: linear-gradient(purple, rgb(159, 69, 159));
+   transition:.6s;
+ }

@@ -1,0 +1,11 @@
+.google-button{
+    background-color: purple;
+    border-radius: 30px;
+    border: none;
+}
+
+.google-logo-back{
+    background-color: white;
+    border-radius: 20px;
+    margin-right: 10px;
+}

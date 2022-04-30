@@ -4,6 +4,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Login.css'
+import SocialLogin from './SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -59,6 +60,8 @@ const Login = () => {
   </Button>
 </Form>
 <p className='mt-3'>New to Admin Panel? <span className='signup-toggle' onClick={navigateSignUp}>Please Sign Up</span></p>
+
+<SocialLogin></SocialLogin>
         </div>
     );
 };

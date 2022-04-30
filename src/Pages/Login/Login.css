@@ -11,3 +11,13 @@
     cursor: pointer;
     font-weight: 700;
 }
+
+.signup-btn{
+    background-color: purple;
+    border: 0;
+}
+
+.signup-btn:hover{
+    background-color: rgb(255, 0, 0);
+    border: 0;
+}

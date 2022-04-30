@@ -1,0 +1,15 @@
+.footer-class{
+    color: tomato;
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    padding-top: 30px;
+    /* position: absolute;
+    bottom: 0; */
+  
+}
+
+.social-icon-class img{
+    width: 30px;
+    margin-left: 10px;
+}

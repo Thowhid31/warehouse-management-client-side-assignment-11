@@ -1,0 +1,13 @@
+.login-head{
+    color: purple;
+}
+
+.form-class-login{
+    text-align: left;
+}
+
+.signup-toggle{
+    color: purple;
+    cursor: pointer;
+    font-weight: 700;
+}

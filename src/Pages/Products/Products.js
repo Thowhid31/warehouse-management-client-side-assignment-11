@@ -12,7 +12,7 @@ const Products = () => {
     }, [])
 
     return (
-        <div className='container'>
+        <div id='products' className='container'>
             <h1 className='products-header mt-4'>Our Some Products</h1>
             <div className='products-container'>
             {

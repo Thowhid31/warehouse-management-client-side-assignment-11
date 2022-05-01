@@ -1,22 +1,3 @@
-// import React from 'react';
-
-// const SocialLogin = () => {
-//     return (
-//         <div>
-//             <div className='d-flex align-items-center'>
-//                 <div style={{height: '1px'}} className='w-50 bg-dark'></div>
-//                 <p className='mt-2 p-2'>or</p>
-//                 <div style={{height: '1px'}} className='w-50 bg-dark'></div>
-//             </div>
-//             <button>Google Sign In</button>
-//         </div>
-//     );
-// };
-
-// export default SocialLogin;
-
-
-
 import React from 'react';
 import './SocialLogin.css'
 import googleLogo from '../../../images/googlelogo.png'
@@ -31,6 +12,7 @@ const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
     let errorElementOwner;
+
     if(error){
         errorElementOwner = 
             <div>

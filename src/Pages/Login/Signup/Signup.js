@@ -1,9 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Signup.css';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 
@@ -13,18 +14,22 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 const Signup = () => {
 
 
+    const [accept, setAccept] = useState(false);
+
+
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
 
     const navigate = useNavigate();
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passRef = useRef('');
+    let errorShow;
 
 
 
@@ -34,9 +39,13 @@ const Signup = () => {
         const password = passRef.current.value;
         const name = nameRef.current.value;
 
+        if(accept){
+            createUserWithEmailAndPassword(email, password)
+        }
+
         // console.log(email, password, name);
 
-        createUserWithEmailAndPassword(email, password)
+        
     }
 
     const navigateSignUp = event => {
@@ -45,6 +54,11 @@ const Signup = () => {
 
     if(user){
         navigate('/home')
+    }
+    if(error){
+        errorShow = <div>
+        <p>Error: {error?.message}</p>
+        </div>
     }
     return (
         <div>
@@ -69,14 +83,19 @@ const Signup = () => {
     <Form.Control ref={passRef} type="password" placeholder="Password" required/>
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
+    <Form.Check onClick={() => setAccept(!accept)} type="checkbox" className={accept ? 'text-success' : 'text-danger'} name='terms' id='terms' label="Accept All Terms and Conditions" />
   </Form.Group>
-  <Button className='signup-btn' variant="primary" type="submit">
+  <Button
+  disabled={!accept}
+  className='signup-btn'  type="submit">
     Signup
   </Button>
 </Form>
+{errorShow}
 <p className='mt-3'>Already in Admin Panel? <span className='signup-toggle' onClick={navigateSignUp}>Please Sign In</span></p>
+<SocialLogin></SocialLogin>
         </div>
+        
         </div>
     );
 };

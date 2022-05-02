@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import './Signup.css';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Loading/Loading';
 
 
 
@@ -30,6 +31,8 @@ const Signup = () => {
     const emailRef = useRef('');
     const passRef = useRef('');
     let errorShow;
+    const location = useLocation
+    let from = location.state?.from?.pathname || "/";
 
 
 
@@ -39,6 +42,7 @@ const Signup = () => {
         const password = passRef.current.value;
         const name = nameRef.current.value;
 
+        
         if(accept){
             createUserWithEmailAndPassword(email, password)
         }
@@ -52,8 +56,12 @@ const Signup = () => {
         navigate('/login')
     }
 
+    if(loading){
+      return <Loading></Loading>
+  }
+
     if(user){
-        navigate('/home')
+      navigate(from, { replace: true });
     }
     if(error){
         errorShow = <div>

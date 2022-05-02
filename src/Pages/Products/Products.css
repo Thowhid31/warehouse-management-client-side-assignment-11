@@ -13,6 +13,16 @@
     width: 100%;
 }
 
+.manage-all-button{
+    background-color: purple;
+    border: none;
+}
+
+.manage-all-button:hover{
+    background-color: rgb(255, 0, 0);
+    border: none;
+}
+
 /* responsive code */
 @media only screen and (max-width: 575px) {
     .products-container{

@@ -9,7 +9,7 @@ const ProductArticle = () => {
     const {productId} = useParams();
     return (
         <div>
-            <h3>Detail Inventory Article</h3>
+            <h3>Detail Inventory Article: {productId}</h3>
             
         </div>
     );

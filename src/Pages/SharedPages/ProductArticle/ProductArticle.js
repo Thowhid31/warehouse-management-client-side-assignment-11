@@ -19,7 +19,7 @@ const ProductArticle = () => {
     return (
         <div>
             <h3>Detail Inventory Article</h3>
-            <div className='container single-product-details '>
+            <div className='container w-50 single-product-details '>
             <h4 className='m-3'>Name: {product.name}</h4>
             <img src={product.img} alt="" />
             <p className='mt-3'><strong>About Product:</strong> {product.description}</p>

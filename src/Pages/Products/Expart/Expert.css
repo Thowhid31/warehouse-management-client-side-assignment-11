@@ -32,15 +32,16 @@
     height: 50px;
     margin: 20px;
     border-radius: 5px;
+    padding: 10px;
 }
 
 .host-button:hover{
     color: rgb(162, 246, 255);
-    background-color: rgb(144, 0, 0);
-    border: 5px solid rgb(255, 255, 92);
+    background-color: red;
+    border: 2px solid rgb(255, 255, 92);
     height: 50px;
     margin: 20px;
     border-radius: 20px;
+    padding: 10px;
     
 }
-

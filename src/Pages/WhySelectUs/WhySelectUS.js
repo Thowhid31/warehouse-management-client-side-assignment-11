@@ -1,6 +1,5 @@
 import React from 'react';
-import whyUs from '../../images/why-us.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import whyUs from '../../images/why-us.jpg';
 import './WhySelectUs.css';
 
 
@@ -14,7 +13,7 @@ const WhySelectUS = () => {
                 <div>
                     <img className='w-100' src={whyUs} alt="" />
                 </div>
-                <div className='card-for-why-select w-100'>
+                <div className='card-for-why-select'>
                     <div class="card card-3">
                         <div class="card__icon"><i class="fas fa-bolt"></i></div>
                         <h2 class="card__detail">We can ensure you that, Our all product gives you full of satisfaction and work friendly uses. If You want to know our product refund policy and also want to read terms and condition, please click the 'About Us' below.</h2>

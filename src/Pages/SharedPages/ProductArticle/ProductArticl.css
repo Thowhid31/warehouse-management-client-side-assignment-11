@@ -8,3 +8,7 @@
     border-radius: 10px;
     
 }
+
+.button-class-for-stock{
+    border: 1px dotted tomato;
+}

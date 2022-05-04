@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './ProductArticl.css'
+import './ProductArticl.css';
+import { useForm } from "react-hook-form";
 
 const ProductArticle = () => {
 
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => console.log(data);
 
 
     const { productId } = useParams();
@@ -19,7 +22,8 @@ const ProductArticle = () => {
     const handleDeliverButton = () => {
         const quantityDecrease = product.quantity;
         product.quantity = parseInt(quantityDecrease) - 1;
-         console.log(product.quantity);
+        console.log(product.quantity);
+
     }
 
     return (
@@ -34,7 +38,13 @@ const ProductArticle = () => {
                 <h5>Supplier: {product.supplierName}</h5>
                 <button onClick={() => handleDeliverButton()} className='btn btn-success mb-3 mt-3'>Deliver</button>
             </div>
+            <div className='m-5'>
+                <form onSubmit={handleSubmit(onSubmit)}>
 
+                    <input className='button-class-for-stock w-25 btn btn-light' type="number" placeholder='Enter Positive Number Only'/><br/>
+                    <input className='btn btn-primary mt-2' type="submit" value={'Add to Stock'} />
+                </form>
+            </div>
         </div>
     );
 };

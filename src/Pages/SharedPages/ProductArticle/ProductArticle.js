@@ -41,8 +41,8 @@ const ProductArticle = () => {
             <div className='m-5'>
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <input className='button-class-for-stock w-25 btn btn-light' type="number" placeholder='Enter Positive Number Only'/><br/>
-                    <input className='btn btn-primary mt-2' type="submit" value={'Add to Stock'} />
+                    <input className='button-class-for-stock w-25 btn btn-light' type="number" {...register('quantity')} placeholder='Enter Positive Number Only'/><br/>
+                    <input className='btn btn-primary mt-2' type="submit" value='Add to Stock'/>
                 </form>
             </div>
         </div>

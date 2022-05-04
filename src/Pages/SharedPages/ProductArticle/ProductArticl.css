@@ -1,0 +1,10 @@
+.single-product-details{
+    border: 1px solid gray;
+    border-radius: 10px;
+    text-align: justify;
+}
+.single-product-details img{
+    width: 100%;
+    border-radius: 10px;
+    
+}

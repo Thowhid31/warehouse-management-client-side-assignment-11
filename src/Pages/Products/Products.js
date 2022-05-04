@@ -14,7 +14,7 @@ const Products = () => {
                         product={product}></Product>)
                 }
             </div>
-            <Link to='/allproducts' className='mt-4 btn btn-success w-75 manage-all-button'>Manage All</Link>
+            <Link to='/manageinventory' className='mt-4 btn btn-success w-75 manage-all-button'>Manage All</Link>
         </div>
     );
 };

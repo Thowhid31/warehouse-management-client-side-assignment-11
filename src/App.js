@@ -37,16 +37,25 @@ function App() {
             <Checkout></Checkout>
           </RequireAuth>
         }></Route>
-        <Route path='/manageinventory' element={
+        <Route path='/addItems' element={
           <RequireAuth>
             <AddItems></AddItems>
           </RequireAuth>
         }></Route>
-        <Route path='/allproducts' element={<ProductAllStock></ProductAllStock>}></Route>
+        <Route path='/myItems' element={
+          <RequireAuth>
+            <AddItems></AddItems>
+          </RequireAuth>
+        }></Route>
+        <Route path='/manageinventory' element={
+          <RequireAuth>
+            <ProductAllStock></ProductAllStock>
+          </RequireAuth>
+        }></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<Not404></Not404>}></Route>
       </Routes>
-      <Footer></Footer>
+    <Footer></Footer>
     </div>
   );
 }

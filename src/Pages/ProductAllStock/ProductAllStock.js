@@ -11,10 +11,10 @@ const ProductAllStock = () => {
             <h1 className='products-header mt-4'>Our All Products</h1>
             <div className='products-container'>
                 {
-products.map(product => <ProductFor1Show
-    key={product.id}
-    product={product}></ProductFor1Show>)
-    }
+                    products.map(product => <ProductFor1Show
+                        key={product.id}
+                        product={product}></ProductFor1Show>)
+                }
             </div>
 
         </div>

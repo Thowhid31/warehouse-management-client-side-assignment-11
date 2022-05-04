@@ -4,7 +4,7 @@ import './Product.css'
 
 
 const Product = ({product}) => {
-    const {id, img, name, description, price } = product;
+    const {_id, img, name, description, price, quantity, supplierName } = product;
 
     const navigate = useNavigate();
     const updateBtnNavigate = id => {
@@ -18,7 +18,9 @@ const Product = ({product}) => {
             <h3>{name} </h3>
             <p>Cost: {price}</p>
             <p><small>{description}</small></p>
-            <button onClick={()=> updateBtnNavigate(id)} className='btn btn-primary product-button'>Update</button>
+            <p>Quantity : {quantity}</p>
+            <h5>Supplier: {supplierName}</h5>
+            <button onClick={()=> updateBtnNavigate(_id)} className='btn btn-primary product-button'>Update</button>
         </div>
     );
 };

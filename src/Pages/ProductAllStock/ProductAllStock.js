@@ -12,7 +12,7 @@ const ProductAllStock = () => {
             <div className='products-container'>
                 {
                     products.map(product => <ProductFor1Show
-                        key={product.id}
+                        key={product._id}
                         product={product}></ProductFor1Show>)
                 }
             </div>

@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -26,15 +26,15 @@ const Header = () => {
               <Nav.Link href="home#products">Products</Nav.Link>
               <Nav.Link href="home#experts">Experts</Nav.Link>
               {
-                user ? <Nav.Link href="/manageinventory">Manage All</Nav.Link> : ''
+                user ? <Nav.Link as={Link} to="/manageinventory">Manage All</Nav.Link> : ''
               }
               {
-                user ? <Nav.Link href="/addItems">Add Item</Nav.Link> : ''
+                user ? <Nav.Link as={Link} to="/addItems">Add Item</Nav.Link> : ''
               }
               {
-                user ? <Nav.Link href="/myItems">My Items</Nav.Link> : ''
+                user ? <Nav.Link as={Link} to="/myItems">My Items</Nav.Link> : ''
               }
-              <Nav.Link href="/blog">Blog</Nav.Link>
+              <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
               <Nav.Link as={Link} to="/about">About Us</Nav.Link>
               {
                 user ? <button className='sign-our-button-for-toggle' onClick={handleSignOut}>Sign Out</button> :

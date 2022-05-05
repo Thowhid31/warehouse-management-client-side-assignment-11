@@ -16,7 +16,6 @@ const AddItems = () => {
         .then(result => {
             console.log(result);
         })
-        // console.log(data)
     };
     return (
         <div className='w-50 mx-auto m-5'>

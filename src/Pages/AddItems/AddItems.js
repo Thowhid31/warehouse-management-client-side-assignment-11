@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from 'react-toastify';
 
 const AddItems = () => {
     const { register, handleSubmit } = useForm();
@@ -15,7 +16,8 @@ const AddItems = () => {
         .then(res => res.json())
         .then(result => {
             console.log(result);
-        })
+            toast('New Item Added in Database & UI');
+               })
     };
     return (
         <div className='w-50 mx-auto m-5'>
@@ -26,8 +28,10 @@ const AddItems = () => {
                 <textarea className='mb-2' placeholder='Description' {...register("description")} />
                 <input className='mb-2' placeholder='Quantity of Product' type='number' {...register("quantity")} />
                 <input className='mb-2' placeholder="Product's Photo URL" type='text' {...register("img")} />
+                <input className='mb-2' placeholder="User Emails" type='email' {...register("email")} />
                 <input className='btn btn-primary' type="submit" value='Add Item' />
             </form>
+            <ToastContainer></ToastContainer>
 
         </div>
     );

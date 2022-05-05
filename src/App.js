@@ -8,6 +8,7 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Signup from './Pages/Login/Signup/Signup';
+import MyItems from './Pages/MyItems/MyItems';
 import ProductAllStock from './Pages/ProductAllStock/ProductAllStock';
 import Footer from './Pages/SharedPages/Footer/Footer';
 import Header from './Pages/SharedPages/Header/Header';
@@ -44,7 +45,7 @@ function App() {
         }></Route>
         <Route path='/myItems' element={
           <RequireAuth>
-            <AddItems></AddItems>
+            <MyItems></MyItems>
           </RequireAuth>
         }></Route>
         <Route path='/manageinventory' element={

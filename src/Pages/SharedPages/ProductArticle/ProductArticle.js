@@ -11,6 +11,8 @@ const ProductArticle = () => {
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+    let quantity = parseInt(product.stock)
+    console.log(quantity);
 
     useEffect(() => {
         const url = `http://localhost:5000/product/${productId}`;
@@ -19,10 +21,12 @@ const ProductArticle = () => {
             .then(data => setProduct(data));
     }, [])
 
-    const handleDeliverButton = () => {
-        const quantityDecrease = product.quantity;
-        product.quantity = parseInt(quantityDecrease) - 1;
-        console.log(product.quantity);
+    const handleDeliverButton = e => {
+        e.preventDefault()
+        
+        // const quantityDecrease = product.quantity;
+        // product.quantity = parseInt(quantityDecrease) - 1;
+        // console.log(product.quantity);
 
     }
 

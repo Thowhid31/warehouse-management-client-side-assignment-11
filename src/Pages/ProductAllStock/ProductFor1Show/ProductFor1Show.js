@@ -4,12 +4,17 @@ import useProducts from '../../Hooks/useProducts.js/useProducts';
 import './ProductFor1Show.css'
 
 const ProductFor1Show = ({ product }) => {
+    const {_id} = product;
     const [products, setProducts] = useProducts();
     const navigate = useNavigate()
 
 
     const handleAddNew = () => {
         navigate('/addItems')
+    }
+
+    const updateBtnNavigate = (id) => {
+        navigate(`/product/${id}`)
     }
 
     const handleDeleteOne = (id) => {
@@ -37,10 +42,15 @@ const ProductFor1Show = ({ product }) => {
             <h3>{name} </h3>
             <p>Cost: {price}</p>
             <p><small>{description}</small></p>
+            
+            
+            
+            <button onClick={()=> updateBtnNavigate(_id)} className='btn btn-success add-new-class'>Update</button>
+
             <button onClick={()=> handleAddNew()} className='btn btn-primary add-new-class'>Add New</button>
 
 
-            <button onClick={()=> handleDeleteOne(product._id)} className='btn btn-danger add-new-class'>Delete One</button>
+            <button onClick={()=> handleDeleteOne(product._id)} className='btn btn-danger add-new-class'>Delete</button>
         </div>
    
 

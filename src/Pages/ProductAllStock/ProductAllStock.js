@@ -13,7 +13,8 @@ const ProductAllStock = () => {
                 {
                     products.map(product => <ProductFor1Show
                         key={product._id}
-                        product={product}></ProductFor1Show>)
+                        product={product}
+                        ></ProductFor1Show>)
                 }
             </div>
 

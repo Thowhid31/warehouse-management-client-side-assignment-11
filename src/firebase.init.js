@@ -6,8 +6,8 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBFLWjRivFV3SCBwrtEEPILimZd_wplg-8",
   authDomain: "warehouse-manage-assignment-11.firebaseapp.com",
+  apiKey: "AIzaSyBFLWjRivFV3SCBwrtEEPILimZd_wplg-8",
   projectId: "warehouse-manage-assignment-11",
   storageBucket: "warehouse-manage-assignment-11.appspot.com",
   messagingSenderId: "209937875532",

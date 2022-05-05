@@ -59,3 +59,34 @@ const MyItems = () => {
 };
 
 export default MyItems;
+
+
+
+// import { async } from '@firebase/util';
+// import axios from 'axios';
+// import React, { useEffect} from 'react';
+// import { useAuthState } from 'react-firebase-hooks/auth';
+// import auth from '../../firebase.init';
+// import useProducts from '../Hooks/useProducts.js/useProducts';
+
+// const MyItems = () => {
+//     const [user] = useAuthState(auth)
+//     const [products, setProducts] = useProducts([])
+//     useEffect(()=>{
+//         const getItem = async()=>{
+
+//             const url = `http://localhost:5000/product`
+
+//             const {data} = await axios.get(url);
+//             console.log(data);
+//         }
+//         getItem()
+//     },[])
+//     return (
+//         <div>
+//             <h1>Your Items: {products.length}</h1>
+//         </div>
+//     );
+// };
+
+// export default MyItems;

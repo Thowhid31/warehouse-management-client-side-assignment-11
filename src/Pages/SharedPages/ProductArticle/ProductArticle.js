@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ProductArticl.css';
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 
 const ProductArticle = () => {
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    // const { register } = useForm();
+    // const onSubmit = data => console.log(data);
 
 
-    const { productId } = useParams();
-    const [product, setProduct] = useState({});
-    let quantity = parseInt(product.stock)
+    const { id } = useParams();
+    const [product, setProduct] = useState(0);
+    let quantity = parseInt(product?.stock)
     console.log(quantity);
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `http://localhost:5000/product/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [])
 
-    const handleDeliverButton = e => {
-        e.preventDefault()
+    const handleDeliverButton = event => {
         
-        // const quantityDecrease = product.quantity;
-        // product.quantity = parseInt(quantityDecrease) - 1;
-        // console.log(product.quantity);
+        const quantityDecrease = product.quantity;
+        product.quantity = parseInt(quantityDecrease) - 1;
+        console.log(product.quantity);
+    }
 
+    const handleAddStock = (event) => {
+        event.preventDefault();
+        const stock = event.target.stock.value;
+        console.log(stock);
+        const newQuantity = parseInt(stock + quantity)
+        console.log(newQuantity)
+
+        if(Number < 0){
+            alert('please enter positive amount')}
     }
 
     return (
@@ -43,11 +52,10 @@ const ProductArticle = () => {
                 <button onClick={() => handleDeliverButton()} className='btn btn-success mb-3 mt-3'>Deliver</button>
             </div>
             <div className='m-5'>
-                <form onSubmit={handleSubmit(onSubmit)}>
-
-                    <input className='button-class-for-stock w-25 btn btn-light' type="number" {...register('quantity')} placeholder='Enter Positive Number Only'/><br/>
-                    <input className='btn btn-primary mt-2' type="submit" value='Add to Stock'/>
-                </form>
+                <div>
+                    <input className='button-class-for-stock w-25 btn btn-light' name='stock' type="number" placeholder='Enter Positive Number Only'/><br/>
+                    <input onClick={handleAddStock} className='btn btn-primary mt-2' type="submit" value='Add to Stock'/>
+                </div>
             </div>
         </div>
     );

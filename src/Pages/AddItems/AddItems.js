@@ -26,10 +26,11 @@ const AddItems = () => {
         <div className='w-50 mx-auto m-5'>
             <h2>Fill all section to Add a Item</h2>
             <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                <input className='mb-2' placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />
-                <input className='mb-2' placeholder='Price($)' type="number" {...register("price", { required: true, maxLength: 20 })} />
+                <input className='mb-2' placeholder='Name' {...register("name", { required: true})} />
+                <input className='mb-2' placeholder='Price($)' type="number" min='1' {...register("price", { required: true, maxLength: 20 })} />
                 <textarea className='mb-2' placeholder='Description' {...register("description")} />
-                <input className='mb-2' placeholder='Quantity of Product' type='number' {...register("quantity")} />
+                <input className='mb-2' placeholder='Quantity of Product' type='number' min='1' {...register("quantity")} />
+                <input className='mb-2' placeholder='Supplier Name' {...register("supplierName", { required: true})} />
                 <input className='mb-2' placeholder="Product's Photo URL" type='text' {...register("img")} />
                 <input className='mb-2' placeholder="User Emails" value={user.email} disabled type='email' {...register("email")} />
                 <input className='btn btn-primary' type="submit" value='Add Item' />

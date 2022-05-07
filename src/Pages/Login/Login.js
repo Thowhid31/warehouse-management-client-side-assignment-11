@@ -8,6 +8,7 @@ import './Login.css'
 import SocialLogin from './SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -25,7 +26,7 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
 
-      const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
+      const [sendPasswordResetEmail] = useSendPasswordResetEmail(
         auth
       );
 
@@ -35,7 +36,7 @@ const Login = () => {
 
 
       if(user){
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
       }
       if(error){
           errorShow = <div>
@@ -43,12 +44,16 @@ const Login = () => {
           </div>
       }
 
-    const handleLoginBtn = event =>{
+    const handleLoginBtn = async event =>{
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passRef.current.value;
 
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const {data} = await axios.post('http://localhost:5000/login', {email});
+        localStorage.setItem('accessToken', data.accessToken);
+        console.log(data);
+        navigate(from, { replace: true });
     }
 
     const navigateSignUp = event => {

@@ -35,22 +35,25 @@ const ProductFor1Show = ({ product }) => {
         }
     }
 
-    const { img, name, description, price } = product;
+    const { img, name, description, price, quantity, supplierName } = product;
     return (
         <div className='single-product'>
-            <img src={img} alt="" />
-            <h3>{name} </h3>
-            <p>Cost: {price}</p>
-            <p><small>{description}</small></p>
+            <div>
+                <img src={img} alt="" />
+                <h3>{name} </h3>
+                <p>Cost: {price}</p>
+                <p><small>{description}</small></p>
+                <p>In Stock: {quantity}</p>
+                <p>Seller: {supplierName}</p>
+            </div>
+            <div className='button-class-for-crud'>
+                <button onClick={() => updateBtnNavigate(_id)} className='btn btn-success add-new-class'>Update</button>
+
+                <button onClick={() => handleAddNew()} className='btn btn-primary add-new-class'>Add New</button>
 
 
-
-            <button onClick={() => updateBtnNavigate(_id)} className='btn btn-success add-new-class'>Update</button>
-
-            <button onClick={() => handleAddNew()} className='btn btn-primary add-new-class'>Add New</button>
-
-
-            <button onClick={() => handleDeleteOne(product._id)} className='btn btn-danger add-new-class'>Delete</button>
+                <button onClick={() => handleDeleteOne(product._id)} className='btn btn-danger add-new-class'>Delete</button>
+            </div>
         </div>
 
 

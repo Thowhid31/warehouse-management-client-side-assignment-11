@@ -3,8 +3,13 @@
     margin-bottom: 5px;
 }
 
+.single-product{
+    text-align: justify;
+    padding: 20px;
+}
+
 .single-product button{
-    
     margin-left: 5px;
     /* margin: auto; */
 }
+

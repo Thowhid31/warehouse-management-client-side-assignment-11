@@ -18,10 +18,10 @@ const WhySelectUS = () => {
                         <div class="card__icon"><i class="fas fa-bolt"></i></div>
                         <h2 class="card__detail">We can ensure you that, Our all product gives you full of satisfaction and work friendly uses. If You want to know our product refund policy and also want to read terms and condition, please click the 'About Us' below.</h2>
                         <p class="card__apply">
-                            <br/>
+                            <br />
                             <a class="card__link" href="/about"> About Us <i class="fas fa-arrow-right"></i></a>
-                        </p> 
-                        
+                        </p>
+
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import About from './Pages/About/About';
 import AddItems from './Pages/AddItems/AddItems';
 import Blog from './Pages/Blog/Blog';
 import Checkout from './Pages/Checkout/Checkout';
+import ContactUs from './Pages/CotactUs/ContactUs';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
@@ -53,6 +54,7 @@ function App() {
             <ProductAllStock></ProductAllStock>
           </RequireAuth>
         }></Route>
+        <Route path='contactus' element={<ContactUs></ContactUs>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<Not404></Not404>}></Route>
       </Routes>

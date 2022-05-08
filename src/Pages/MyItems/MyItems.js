@@ -13,7 +13,11 @@ const MyItems = () => {
         const getProduct = async() => {
             const email = user.email;
             const url = `http://localhost:5000/products?email=${email}`;
-            const { data } = await axios.get(url)
+            const { data } = await axios.get(url, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             setProducts(data);
             console.log(data);
         }

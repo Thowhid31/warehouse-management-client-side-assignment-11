@@ -1,0 +1,13 @@
+.pagination-class button{
+    color: white;
+    background-color: purple;
+    border: none;
+    margin: 5px;
+    width: 30px;
+    border-radius: 5px;
+}
+
+.pagination-class .selected{
+    background-color: tomato;
+    color: white;
+}

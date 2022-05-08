@@ -9,6 +9,7 @@ const ProductFor1Show = ({ product }) => {
     const navigate = useNavigate()
 
 
+
     const handleAddNew = () => {
         navigate('/addItems')
     }

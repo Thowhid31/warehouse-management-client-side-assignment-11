@@ -3,14 +3,17 @@ import './SocialLogin.css'
 import googleLogo from '../../../images/googlelogo.png'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../Loading/Loading';
 import auth from '../../../firebase.init';
+
 
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     let errorElementOwner;
 
     if(error){
@@ -22,8 +25,9 @@ const SocialLogin = () => {
     if(loading){
         return <Loading></Loading>
     }
+    
     if(user){
-        navigate('/checkout')
+        navigate(from, { replace: true })
     }
     return (
         <div>

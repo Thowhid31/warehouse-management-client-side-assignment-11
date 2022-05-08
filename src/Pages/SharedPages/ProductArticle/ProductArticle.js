@@ -137,7 +137,7 @@ const ProductArticle = () => {
                 disabled={quantity === 0}
                 >Deliver</button>
             </div>
-            <div className=' container m-5 col-sm-12 col-lg-6 mx-auto d-flex'>
+            <div className=' container m-5 col-sm-12 col-lg-6 mx-auto'>
                 <div>
                     {/* <input className='button-class-for-stock w-25 btn btn-light' name='add' type="number" min='1' placeholder='Enter Positive Number Only' /><br />
                     <button onClick={handleStockAdd} className='btn btn-primary mt-2' type="submit" value='Add to Stock'>Add to Stock</button> */}

@@ -97,8 +97,9 @@ const ProductArticle = () => {
             if (data.modifiedCount) {
                 toast.success('Successfully Delivered', { id: 'test' })
             }
-            if(quantity === 0){
+            if(quantity === 1){
                 toast.error('Out of Stock')
+                
                 }
         }
         getQuantity()
@@ -132,7 +133,9 @@ const ProductArticle = () => {
                 <p><strong>Price:</strong> {product.price}</p>
                 <p> <strong>Quantity:</strong> {product.quantity}</p>
                 <h5>Supplier: {product.supplierName}</h5>
-                <button onClick={() => handleDeliverButton()} className='btn btn-success mb-3 mt-3'>Deliver</button>
+                <button onClick={() => handleDeliverButton()} className='btn btn-success mb-3 mt-3'
+                disabled={quantity === 0}
+                >Deliver</button>
             </div>
             <div className=' container m-5 col-sm-12 col-lg-6 mx-auto d-flex'>
                 <div>
@@ -141,7 +144,7 @@ const ProductArticle = () => {
                     <form onSubmit={handleStockAdd} className=' form-floating d-flex flex-lg-row stock mx-auto'>
                         <input type="number" name='add' min='1' className='form-control me-3 w-100' id='floatingInput' placeholder='Add to Stock' />
                         <label htmlFor='floatingInput' className='class-of-add-stock tex-dark'>Input Hrer</label>
-                        <input className='btn btn-outline-success text-dark mx-3 mt-0 mb-4 py-3' type='submit' value='Add to Stock' />
+                        <input className='btn btn-outline-success text-dark mx-3 mt-0 mb-4 py-3' type='submit' value='Add to Stock'/>
                     </form>
                     <ToastContainer></ToastContainer>
                 </div>

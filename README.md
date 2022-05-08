@@ -3,9 +3,10 @@
 Short Description: This is my first Complete website which is full developed by me. As a beginner we first of all known about HTML, then CSS, JS, REACT, MongoDB, NodeJs etc. This website Contains all these feature through development.
 
 ###Liks###
-Live Site Link :
+Live Site Link : https://warehouse-manage-assignment-11.web.app/
 Repository Link (Client) : https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Thowhid31
 Repository Link (Server) : https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Thowhid31
+StackOverFlow Question: https://stackoverflow.com/questions/72161625/how-can-i-clone-project-from-github-with-all-commit
 
 ##Different features and functionality##
 

@@ -2,9 +2,6 @@ import React from 'react';
 import whyUs from '../../images/why-us.jpg';
 import './WhySelectUs.css';
 
-
-
-
 const WhySelectUS = () => {
     return (
         <div className='container whole-root-class-for-why-select-us'>

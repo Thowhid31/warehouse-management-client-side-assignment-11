@@ -1,18 +1,17 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import useProducts from '../Hooks/useProducts.js/useProducts';
 
 const MyItems = () => {
-    const [products, setProducts] = useProducts([])
+    const [products, setProducts] = useState([])
     const [user] = useAuthState(auth)
 
     useEffect(() => {
 
-        const getProduct = async() => {
-            const email = user.email;
-            const url = `http://localhost:5000/products?email=${email}`;
+        const getProduct = async () => {
+            const email = user?.email;
+            const url = `https://secure-hollows-46907.herokuapp.com/products?email=${email}`;
             const { data } = await axios.get(url, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,73 +23,41 @@ const MyItems = () => {
         getProduct();
 
 
-    }, [])
+    }, [user])
 
-    const handleDeleteMyItem = (id)=>{
+    const handleDeleteMyItem = (id) => {
         const proceed = window.confirm('Are you sure to Delete?')
 
-        if(proceed){
-            const url = `http://localhost:5000/product/${id}`
+        if (proceed) {
+            const url = `https://secure-hollows-46907.herokuapp.com/products/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.deleteCount > 0){
-                    console.log('deleted');
-                    const remaining = products.filter(product => product._id !== id)
-                    setProducts(remaining);
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deleteCount > 0) {
+                        console.log('deleted');
+                        const remaining = products.filter(product => product._id !== id)
+                        setProducts(remaining);
+                    }
+                })
             console.log('delete id', id);
         }
     }
 
-    
     return (
         <div>
-            <h1>My Items : {products?.length}</h1>
+            <h1>My Items : {products.length}</h1>
             {
-                products.slice().map(product => <li
-                key={product._id}>
-                    {product.name} — {product.email}
-                <button className='btn btn-danger m-2' onClick={()=>handleDeleteMyItem(product._id)}>Delete</button>
+                products.map(product => <li
+                    key={product._id}>
+                    {product.name} — {product?.email}
+                    <button className='btn btn-danger m-2' onClick={() => handleDeleteMyItem(product._id)}>Delete</button>
                 </li>)
-                
+
             }
         </div>
     );
 };
 
 export default MyItems;
-
-
-
-// import { async } from '@firebase/util';
-// import axios from 'axios';
-// import React, { useEffect} from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import auth from '../../firebase.init';
-// import useProducts from '../Hooks/useProducts.js/useProducts';
-
-// const MyItems = () => {
-//     const [user] = useAuthState(auth)
-//     const [products, setProducts] = useProducts([])
-//     useEffect(()=>{
-//         const getItem = async()=>{
-
-//             const url = `http://localhost:5000/product`
-
-//             const {data} = await axios.get(url);
-//             console.log(data);
-//         }
-//         getItem()
-//     },[])
-//     return (
-//         <div>
-//             <h1>Your Items: {products.length}</h1>
-//         </div>
-//     );
-// };
-
-// export default MyItems;

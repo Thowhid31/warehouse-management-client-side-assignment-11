@@ -8,7 +8,6 @@ import './Header.css'
 
 const Header = () => {
   const [user] = useAuthState(auth)
-
   const handleSignOut = () => {
     signOut(auth)
   }
@@ -20,7 +19,6 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-
             </Nav>
             <Nav>
               <Nav.Link href="home#products">Products</Nav.Link>
@@ -46,7 +44,6 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
     </>
   );
 };

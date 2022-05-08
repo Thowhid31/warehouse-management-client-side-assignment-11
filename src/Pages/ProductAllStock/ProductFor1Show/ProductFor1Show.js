@@ -8,8 +8,6 @@ const ProductFor1Show = ({ product }) => {
     const [products, setProducts] = useProducts();
     const navigate = useNavigate()
 
-
-
     const handleAddNew = () => {
         navigate('/addItems')
     }
@@ -23,7 +21,7 @@ const ProductFor1Show = ({ product }) => {
         const proceed = window.confirm('Are you sure for delete?');
         //DELETE Operation starts here
         if (proceed) {
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `https://secure-hollows-46907.herokuapp.com/product/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -35,7 +33,6 @@ const ProductFor1Show = ({ product }) => {
                 })
         }
     }
-
     const { img, name, description, price, quantity, supplierName } = product;
     return (
         <div className='single-product'>
@@ -52,17 +49,10 @@ const ProductFor1Show = ({ product }) => {
 
                 <button onClick={() => handleAddNew()} className='btn btn-primary add-new-class'>Add New</button>
 
-
                 <button onClick={() => handleDeleteOne(product._id)} className='btn btn-danger add-new-class'>Delete</button>
             </div>
         </div>
-
-
-
-
     );
 };
-
-
 
 export default ProductFor1Show;

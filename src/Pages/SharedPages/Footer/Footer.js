@@ -19,8 +19,8 @@ const Footer = () => {
                         <a href="https://www.youtube.com/"><img src={yt} alt="" /></a>
                     </p>
                 </div>
-            <p><small><span dangerouslySetInnerHTML={{ "__html": "&copy;"} }/> 
-                 Copyright: {new Date().getFullYear()}</small></p>
+                <p><small><span dangerouslySetInnerHTML={{ "__html": "&copy;" }} />
+                    Copyright: {new Date().getFullYear()}</small></p>
             </div>
         </footer>
     );

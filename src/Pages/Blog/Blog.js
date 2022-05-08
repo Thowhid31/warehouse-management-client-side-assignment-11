@@ -41,7 +41,7 @@ const Blog = () => {
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body accordion-for-blog">
                             <strong>SQL :</strong> The SQL system are called RDBMS; RELATIONAL DATABASE MANAGEMENT SYSTEM. These Database have fixed or static scheme and not suited for hierarchical data storage. But these database are best suited for complex queries. <br />
-                            <strong>NoSQL : </strong> No SQL means Not Structured query language. This is Non-relational or distributed database system. These have dynamic schema. Not SQL are Horizontally Scalable. 
+                            <strong>NoSQL : </strong> No SQL means Not Structured query language. This is Non-relational or distributed database system. These have dynamic schema. Not SQL are Horizontally Scalable.
                         </div>
                     </div>
                 </div>

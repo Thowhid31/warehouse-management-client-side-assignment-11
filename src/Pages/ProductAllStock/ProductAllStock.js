@@ -3,7 +3,6 @@ import useProducts from '../Hooks/useProducts.js/useProducts';
 import ProductFor1Show from './ProductFor1Show/ProductFor1Show';
 import './ProductAllStock.css';
 
-
 const ProductAllStock = () => {
     const [products, setProducts] = useProducts([]);
     const [pageCount, setPageCount] = useState(0);
@@ -11,13 +10,13 @@ const ProductAllStock = () => {
     const [size, setPageSize] = useState(10);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/product?page=${page}&size=${size}`)
+        fetch(`https://secure-hollows-46907.herokuapp.com/product?page=${page}&size=${size}`)
         .then(res => res.json())
         .then(data => setProducts(data))
     }, [page, size])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/productCount')
+        fetch('https://secure-hollows-46907.herokuapp.com/productCount')
         .then(res => res.json())
         .then(data => {
             const count = data.count;

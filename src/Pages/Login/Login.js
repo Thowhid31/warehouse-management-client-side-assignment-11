@@ -11,95 +11,94 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 const Login = () => {
-    const emailRef = useRef('');
-    const passRef = useRef('');
-    const navigate = useNavigate();
-    const location = useLocation();
+  const emailRef = useRef('');
+  const passRef = useRef('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    let from = location.state?.from?.pathname || "/";
-    let errorShow;
+  let from = location.state?.from?.pathname || "/";
+  let errorShow;
 
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useSignInWithEmailAndPassword(auth);
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
 
-      const [sendPasswordResetEmail] = useSendPasswordResetEmail(
-        auth
-      );
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(
+    auth
+  );
 
-      if(loading){
-        return <Loading></Loading>
+  if (loading) {
+    return <Loading></Loading>
+  }
+
+  if (user) {
+    // navigate(from, { replace: true });
+  }
+  if (error) {
+    errorShow = <div>
+      <p>Error: {error?.message}</p>
+    </div>
+  }
+
+  const handleLoginBtn = async event => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passRef.current.value;
+
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post('https://secure-hollows-46907.herokuapp.com/login', { email });
+    localStorage.setItem('accessToken', data.accessToken);
+    console.log(data);
+    navigate(from, { replace: true });
+  }
+
+  const navigateSignUp = event => {
+    navigate('/signup')
+  }
+
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast('Your Password Reset Request on Email Sent!');
     }
-
-
-      if(user){
-        // navigate(from, { replace: true });
-      }
-      if(error){
-          errorShow = <div>
-          <p>Error: {error?.message}</p>
-          </div>
-      }
-
-    const handleLoginBtn = async event =>{
-        event.preventDefault();
-        const email = emailRef.current.value;
-        const password = passRef.current.value;
-
-        await signInWithEmailAndPassword(email, password);
-        const {data} = await axios.post('http://localhost:5000/login', {email});
-        localStorage.setItem('accessToken', data.accessToken);
-        console.log(data);
-        navigate(from, { replace: true });
+    else {
+      toast('Enter E-mail for Reset Password!')
     }
+  }
 
-    const navigateSignUp = event => {
-        navigate('/signup')
-    }
+  return (
+    <div className='container w-50 mx-auto form-class-login'>
+      <h1 className='login-head  p-4'>Please Login</h1>
+      <Form onSubmit={handleLoginBtn}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
 
-    const resetPassword = async() => {
-        const email = emailRef.current.value;
-        if(email){
-            await sendPasswordResetEmail(email);
-          toast('Your Password Reset Request on Email Sent!');
-        }
-        else{
-            toast('Enter E-mail for Reset Password!')
-        }
-    }
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Control ref={passRef} type="password" placeholder="Password" required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
 
-    return (
-        <div className='container w-50 mx-auto form-class-login'>
-            <h1 className='login-head  p-4'>Please Login</h1>
-            <Form onSubmit={handleLoginBtn}>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
+        </Form.Group>
+        <Button className='signup-btn' variant="primary" type="submit">
+          Login
+        </Button>
+      </Form>
+      {errorShow}
+      <p className='mt-3'>New to Admin Panel? <Link to="/signup" className='signup-toggle text-decoration-none' onClick={navigateSignUp}>Please Sign Up</Link></p>
+      <p className='mt-3'>Forger Password <span className='signup-toggle' onClick={resetPassword}>Reset Password</span></p>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Control ref={passRef} type="password" placeholder="Password" required/>
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    
-  </Form.Group>
-  <Button className='signup-btn' variant="primary" type="submit">
-    Login
-  </Button>
-</Form>
-{errorShow}
-<p className='mt-3'>New to Admin Panel? <Link to="/signup" className='signup-toggle text-decoration-none' onClick={navigateSignUp}>Please Sign Up</Link></p>
-<p className='mt-3'>Forger Password <span className='signup-toggle' onClick={resetPassword}>Reset Password</span></p>
-
-<SocialLogin></SocialLogin>
-<ToastContainer></ToastContainer>
-        </div>
-    );
+      <SocialLogin></SocialLogin>
+      <ToastContainer></ToastContainer>
+    </div>
+  );
 };
 
 export default Login;

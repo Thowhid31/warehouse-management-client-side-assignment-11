@@ -7,13 +7,13 @@ import HeadBanner3 from '../../images/carosel-3.jpg'
 
 
 const HeaderBanner = () => {
-    const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-    };
-    return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+  return (
+    <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -52,7 +52,7 @@ const HeaderBanner = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    );
+  );
 };
 
 export default HeaderBanner;
